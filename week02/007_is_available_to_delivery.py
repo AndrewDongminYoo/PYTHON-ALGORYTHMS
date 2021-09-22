@@ -3,8 +3,10 @@ def is_existing(target, array):
     대상 리스트에 타겟 값이 존재하는지 여부를 나타냅니다.
 
     :param target: 찾고자 하는 값입니다.
+    :type target: Any
     :param array: 찾고자 하는 대상이 되는 배열(리스트)입니다.
-    :return: Boolean
+    :type array: list
+    :return: bool
     """
     if len(array) == 0:
         return False
