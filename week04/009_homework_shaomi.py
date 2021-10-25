@@ -37,15 +37,56 @@ current_room_map = [
     [1, 0, 0, 0, 0, 0, 1, 1, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-]
+]   # 북,동, 남,서
+dr = [-1, 0, 1, 0]
+dc = [0, 1, 0, -1]
 
 
-def get_count_of_departments_cleaned_by_robot_vacuum(r, c, d, room_map):
-    return
+# 방향 전환
+def turn_left_direction(d):
+    return (d + 3) % 4
+
+
+# 후진
+def go_back_direction(d):
+    return (d + 2) % 4
+
+
+def get_cleaned_space_by_vacuum_bot(r, c, d, room_map):
+    N = len(room_map)
+    M = len(room_map[0])
+    cleaned_spaces = 1  # 청소기가 현재 위치는 이미 청소했다고 가정
+    room_map[r][c] = 2  # 청소기가 현재 위치는 청소했음 (2: 청소한 장소, 0:청소못한, 1:벽)
+    queue = list([[r, c, d]])
+    # 큐가 비어지면 종료
+    while queue:
+        r, c, d = queue.pop(0)
+        temp_d = d
+
+        for i in range(4):
+            temp_d = turn_left_direction(temp_d)
+            new_r, new_c = r + dr[temp_d], c + dc[temp_d]
+
+            # a
+            if 0 <= new_r < N and 0 <= new_c < M:
+                if room_map[new_r][new_c] == 0:
+                    cleaned_spaces += 1
+                    room_map[new_r][new_c] = 2
+                    queue.append([new_r, new_c, temp_d])
+                    break
+
+                # c
+                elif i == 3:  # 갈 곳이 없었던 경우
+                    new_r, new_c = r + dr[go_back_direction(d)], c + dc[go_back_direction(d)]
+                    queue.append([new_r, new_c, d])
+
+                    # d
+                    if room_map[new_r][new_c] == 1:  # 뒤가 벽인 경우
+                        return cleaned_spaces  # 시뮬레이션 종료!
 
 
 # 57 가 출력되어야 합니다!
-print(get_count_of_departments_cleaned_by_robot_vacuum(current_r, current_c, current_d, current_room_map))
+print(get_cleaned_space_by_vacuum_bot(current_r, current_c, current_d, current_room_map))
 current_room_map2 = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 0, 1, 1, 0, 0, 0, 0, 0, 1],
@@ -59,7 +100,7 @@ current_room_map2 = [
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ]
-print("정답 = 29 / 현재 풀이 값 = ", get_count_of_departments_cleaned_by_robot_vacuum(6,3,1,current_room_map2))
+print("정답 = 29 / 현재 풀이 값 =", get_cleaned_space_by_vacuum_bot(6, 3, 1, current_room_map2))
 current_room_map3 = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 0, 1, 1, 0, 0, 0, 0, 0, 1],
@@ -73,7 +114,7 @@ current_room_map3 = [
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ]
-print("정답 = 33 / 현재 풀이 값 = ", get_count_of_departments_cleaned_by_robot_vacuum(7,4,1,current_room_map3))
+print("정답 = 33 / 현재 풀이 값 =", get_cleaned_space_by_vacuum_bot(7, 4, 1, current_room_map3))
 current_room_map4 = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 0, 1, 1, 0, 0, 0, 0, 0, 1],
@@ -87,4 +128,4 @@ current_room_map4 = [
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ]
-print("정답 = 25 / 현재 풀이 값 = ", get_count_of_departments_cleaned_by_robot_vacuum(6,2,0,current_room_map4))
+print("정답 = 25 / 현재 풀이 값 =", get_cleaned_space_by_vacuum_bot(6, 2, 0, current_room_map4))
