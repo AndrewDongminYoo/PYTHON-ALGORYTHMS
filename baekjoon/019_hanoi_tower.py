@@ -15,18 +15,25 @@
 # 두 번째 줄부터 K개의 줄에 걸쳐 두 정수 A B를 빈칸을 사이에 두고 출력하는데,
 # 이는 A번째 탑의 가장 위에 있는 원판을 B번째 탑의 가장 위로 옮긴다는 뜻이다.
 import sys
+
 cnt = 0
-def hanoinum(num):
+
+
+def hanoi_num(num):
     if num == 1:
         return 1
-    return hanoinum(num-1)*2+1
+    return hanoi_num(num - 1) * 2 + 1
+
+
 def hanoi(num, start, end):
     if num == 0:
         return
     other = 6 - start - end
-    hanoi(num-1, start, other)
+    hanoi(num - 1, start, other)
     print(start, end)
     return hanoi(num - 1, other, end)
+
+
 init = int(sys.stdin.readline().strip())
-print(hanoinum(init))
+print(hanoi_num(init))
 hanoi(init, 1, 3)

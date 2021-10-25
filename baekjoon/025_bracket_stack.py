@@ -4,7 +4,7 @@ cnt = int(inp().strip())
 for _ in range(cnt):
     string = inp().strip()
     while "()" in string:
-        string = string.replace("()","")
+        string = string.replace("()", "")
     if not string:
         print("YES")
     else:
