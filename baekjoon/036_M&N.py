@@ -29,8 +29,8 @@ N, M = map(int, input().split())
 
 
 def solution2(n, m):
-    C = combinations(range(1, n+1), m)  # iter(tuple)
-    for i in C:
+    comb = combinations(range(1, n+1), m)  # iter(tuple)
+    for i in comb:
         print(' '.join(map(str, i)))  # tuple -> str
 
 
