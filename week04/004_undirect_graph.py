@@ -1,6 +1,5 @@
 # 모든 요소를 0으로 초기화시킨 크기 6 x 6 인접 행렬
-adjacency_matrix = [[0 for i in range(6)] for i in range(6)]
-
+adjacency_matrix = [[0 for n in range(6)] for m in range(6)]
 
 # 엣지 (영훈, 현승) 저장
 adjacency_matrix[0][1] = 1
@@ -21,7 +20,6 @@ adjacency_matrix[4][5] = 1
 
 for i in range(6):
     for j in range(6):
-        adjacency_matrix[j][i]=adjacency_matrix[i][j]
-
+        adjacency_matrix[j][i] = adjacency_matrix[i][j]
 
 print(adjacency_matrix)

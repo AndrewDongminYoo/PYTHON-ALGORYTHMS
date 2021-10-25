@@ -26,7 +26,7 @@ class StationNode:
 
 
 def create_subway_graph(input_file):
-    """input_file에서 데이터를 읽어 와서 지하철 그래프를 리턴하는 함수"""
+    """input_file 에서 데이터를 읽어 와서 지하철 그래프를 리턴하는 함수"""
     _stations = {}  # 지하철 역 노드들을 담을 딕셔너리
 
     # 파라미터로 받은 input_file 파일을 연다
@@ -41,10 +41,10 @@ def create_subway_graph(input_file):
                 # 지하철 역 이름이 이미 저장한 key 인지 확인
                 if station_name not in _stations:
                     current_station = StationNode(station_name)  # 새로운 인스턴스를 생성하고
-                    _stations[station_name] = current_station  # dictionary에 역 이름은 key로, 역 인스턴스를 value로 저장한다
+                    _stations[station_name] = current_station  # dictionary 에 역 이름은 key 로, 역 인스턴스를 value 로 저장한다
 
                 else:
-                    current_station = _stations[station_name]  # 이미 저장한 역이면 stations에서 역 인스턴스를 갖고 온다
+                    current_station = _stations[station_name]  # 이미 저장한 역이면 stations 에서 역 인스턴스를 갖고 온다
 
                 if previous_station:
                     current_station.add_connection(previous_station)  # 현재 역과 전 역의 엣지를 연결한다
@@ -55,7 +55,7 @@ def create_subway_graph(input_file):
 
 
 def bfs(graph, start_node):
-    """시작 노드에서 bfs를 실행하는 함수"""
+    """시작 노드에서 bfs 를 실행하는 함수"""
     queue = deque()  # 빈 큐 생성
 
     # 모든 노드를 방문하지 않은 노드로 표시
@@ -79,25 +79,26 @@ def bfs(graph, start_node):
 def back_track(destination_node):
     """최단 경로를 찾기 위한 back tracking 함수"""
     res_str = ""  # 리턴할 결과 문자열
-    temp = destination_node  #  도착 노드에서 시작 노드까지 찾아가는 데 사용할 변수
+    temp = destination_node  # 도착 노드에서 시작 노드까지 찾아가는 데 사용할 변수
 
     # 시작 노드까지 갈 때까지
     while temp is not None:
         res_str = f"{temp.station_name} {res_str}"  # 결과 문자열에 역 이름을 더하고
-        temp = temp.predecessor  # temp를 다음 노드로 바꿔준다
+        temp = temp.predecessor  # temp 를 다음 노드로 바꿔준다
 
-    return  res_str
+    return res_str
 
-def back_track_reculsive(destination_node):
+
+def back_track_recursive(destination_node):
     """최단 경로를 찾기 위한 back tracking 재귀함수"""
     res_str = destination_node.station_name
     if destination_node.predecessor is None:
         return res_str
-    return f"{back_track_reculsive(destination_node.predecessor)} {res_str}"
+    return f"{back_track_recursive(destination_node.predecessor)} {res_str}"
 
 
 def dfs(graph, start_node):
-    """시작 노드에서 dfs를 실행하는 함수"""
+    """시작 노드에서 dfs 를 실행하는 함수"""
     stack = deque()  # 빈 스택 생성
 
     # 모든 노드를 처음 보는 노드로 초기화
@@ -119,7 +120,6 @@ def dfs(graph, start_node):
 
 stations = create_subway_graph("./stations.txt")  # stations.txt 파일로 그래프를 만든다
 
-# stations에 저장한 역 인접 역들 출력 (채점을 위해 역 이름 순서대로 출력)
+# stations 에 저장한 역 인접 역들 출력 (채점을 위해 역 이름 순서대로 출력)
 bfs(stations, stations["상봉"])  # 지하철 그래프에서 을지로3가역을 시작 노드로 bfs 실행
-print(back_track_reculsive(stations["양재시민의숲"]))  # 을지로3가에서 강동구청역까지 최단 경로 출력
-
+print(back_track_recursive(stations["양재시민의숲"]))  # 을지로3가에서 강동구청역까지 최단 경로 출력

@@ -14,14 +14,14 @@ def get_parent_index(complete_binary_tree, index):
 
 
 def get_left_child_index(complete_binary_tree, index):
-    """배열로 구현한 완전 이진 트리에서 index번째 노드의 왼쪽 자식 노드의 인덱스를 리턴하는 함수"""
+    """배열로 구현한 완전 이진 트리에서 index 번째 노드의 왼쪽 자식 노드의 인덱스를 리턴하는 함수"""
     _left_child_index = index * 2
     if 0 < _left_child_index < len(complete_binary_tree):
         return _left_child_index
 
 
 def get_right_child_index(complete_binary_tree, index):
-    """배열로 구현한 완전 이진 트리에서 index번째 노드의 오른쪽 자식 노드의 인덱스를 리턴하는 함수"""
+    """배열로 구현한 완전 이진 트리에서 index 번째 노드의 오른쪽 자식 노드의 인덱스를 리턴하는 함수"""
     _right_child_index = index * 2 + 1
     if 0 < _right_child_index < len(complete_binary_tree):
         return _right_child_index
