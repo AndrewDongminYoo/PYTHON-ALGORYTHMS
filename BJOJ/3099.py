@@ -25,4 +25,3 @@ elif x2 == x3:
         print(x1, y3)
     elif y1 == y3:
         print(x1, y2)
-

@@ -4,5 +4,3 @@ for _ in range(T):
     R, S = input().split()
     words += [S[_] * int(R) for _ in range(len(S))]
     print(''.join(words))
-
-

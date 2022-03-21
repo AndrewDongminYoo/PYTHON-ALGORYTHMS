@@ -13,5 +13,3 @@ def solution(n):
 
 N = int(input())
 print(solution(N))
-
-

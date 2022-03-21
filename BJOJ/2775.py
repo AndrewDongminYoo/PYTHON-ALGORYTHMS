@@ -8,7 +8,7 @@ P = [[_ for _ in range(15)] for _ in range(15)]
 
 for floor_num in range(1, 15):
     for room_num in range(1, 15):
-        P[floor_num][room_num] = sum(P[floor_num - 1][:room_num+1])
+        P[floor_num][room_num] = sum(P[floor_num - 1][:room_num + 1])
 
 for _ in range(int(input())):
     k = int(input())

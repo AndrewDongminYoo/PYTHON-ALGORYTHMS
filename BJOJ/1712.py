@@ -23,4 +23,3 @@ def get_break_even_point():
 
 
 print(get_break_even_point())
-

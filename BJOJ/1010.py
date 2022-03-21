@@ -1,4 +1,6 @@
 solution = 1
+
+
 def bridge(n, m):
     global solution
     if n == 0:
@@ -6,8 +8,10 @@ def bridge(n, m):
         solution = 1
     else:
         solution = solution * (m / n)
-        bridge(n-1, m-1)
-T =[]
+        bridge(n - 1, m - 1)
+
+
+T = []
 N = int(input().strip())
 for _ in range(N):
     T.append(list(map(int, input().split())))

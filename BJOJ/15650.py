@@ -3,8 +3,8 @@
 # 1부터 N까지 자연수 중에서 중복 없이 M개를 고른 수열
 # 고른 수열은 오름차순이어야 한다.
 # 첫째 줄에 자연수 N과 M이 주어진다. (1 ≤ M ≤ N ≤ 8)
-from itertools import combinations
 import sys
+from itertools import combinations
 
 N, M = map(int, sys.stdin.readline().split())
 discovered = [False] * N
@@ -29,7 +29,7 @@ N, M = map(int, input().split())
 
 
 def solution2(n, m):
-    comb = combinations(range(1, n+1), m)  # iter(tuple)
+    comb = combinations(range(1, n + 1), m)  # iter(tuple)
     for i in comb:
         print(' '.join(map(str, i)))  # tuple -> str
 

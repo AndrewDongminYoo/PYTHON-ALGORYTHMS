@@ -1,4 +1,5 @@
 import sys
+
 inp = sys.stdin.readline
 cnt = int(inp().strip())
 for _ in range(cnt):

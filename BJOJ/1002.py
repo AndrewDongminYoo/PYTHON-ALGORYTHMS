@@ -37,5 +37,3 @@ for _ in range(count):
         print(1)
     elif r2 - r1 < line < r1 + r2:
         print(2)
-
-

@@ -18,15 +18,16 @@ def is_prime_number(n):
             return True
         return False
     else:
-        for i in range(2, int(n**0.5)+1):
+        for i in range(2, int(n ** 0.5) + 1):
             if n % i == 0:
                 return False
         return True
 
+
 prime_numbers = []
 M = int(input())
 N = int(input())
-for number in range(M, N+1):
+for number in range(M, N + 1):
     if is_prime_number(number):
         prime_numbers.append(number)
 

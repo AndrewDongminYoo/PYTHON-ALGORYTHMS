@@ -25,7 +25,7 @@ for _ in range(cnt):
     n = int(sys.stdin.readline())
     numbers.append(n)
 print(round(sum(numbers) / cnt))
-print(sorted(numbers)[len(numbers)//2])
+print(sorted(numbers)[len(numbers) // 2])
 freq = dict()
 for num in sorted(numbers):
     if num not in freq.keys():

@@ -31,9 +31,7 @@ cases = int(input())
 for _ in range(cases):
     n = int(input())
     ans = []
-    for i in range(n//2, n):
+    for i in range(n // 2, n):
         if check[i] and check[n - i]:
-            print(n-i, i)
+            print(n - i, i)
             break
-
-

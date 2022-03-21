@@ -8,7 +8,7 @@ def arithmetic_sequence(n: int) -> int:
         return 144
     answer = set(c for c in range(1, 100))
     if n >= 100:
-        for i in range(101, n+1):
+        for i in range(101, n + 1):
             a, b, c = map(int, list(str(i)))
             if a - b == b - c:
                 answer.add(i)
@@ -16,5 +16,6 @@ def arithmetic_sequence(n: int) -> int:
 
 
 import sys
+
 number = int(sys.stdin.readline())
 print(arithmetic_sequence(number))

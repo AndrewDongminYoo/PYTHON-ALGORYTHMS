@@ -23,11 +23,12 @@
 # 각 테스트 데이터는 한 행으로서 H, W, N, 세 정수를 포함하고 있으며 각각 호텔의 층 수, 각 층의 방 수, 몇 번째 손님인지를 나타낸다
 # (1 ≤ H, W ≤ 99, 1 ≤ N ≤ H × W).
 import sys
+
 c = int(sys.stdin.readline().strip())
 for _ in range(c):
     h, w, nth = map(int, sys.stdin.readline().split())
     floor = nth % h
-    room = (nth // h)+1
+    room = (nth // h) + 1
     if floor == 0:
         floor = h
         room = nth // h

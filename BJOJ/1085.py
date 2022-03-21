@@ -11,6 +11,6 @@
 
 X, Y, W, H = map(int, input().split())
 
-case1 = min(abs(W-X), abs(X))  # 가로 최단 거리
-case2 = min(abs(H-Y), abs(Y))  # 세로 최단 거리
+case1 = min(abs(W - X), abs(X))  # 가로 최단 거리
+case2 = min(abs(H - Y), abs(Y))  # 세로 최단 거리
 print(min(case1, case2))  # 총 최단 거리

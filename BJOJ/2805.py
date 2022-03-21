@@ -1,4 +1,5 @@
 import sys
+
 input = sys.stdin.readline
 
 
@@ -8,7 +9,7 @@ def mine():
     d = dict()
     for h in range(max(trees), 0, -1):
         for t in trees:
-            d[h] = sum(list(map(lambda x: x-h if x-h > 0 else 0, trees)))
+            d[h] = sum(list(map(lambda x: x - h if x - h > 0 else 0, trees)))
         if d[h] >= need:
             print(h)
             break
@@ -36,4 +37,3 @@ def theirs():
             left = mid + 1
 
     print(answer)
-

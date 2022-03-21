@@ -1,4 +1,5 @@
 import sys
+
 c = int(sys.stdin.readline())
 for i in range(c):
     d = sys.stdin.readline()

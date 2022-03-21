@@ -15,6 +15,7 @@ def y(num):
 
 
 import sys
+
 A, B = map(int, sys.stdin.readline().split())
 gong = max(y(A).intersection(y(B)))
 g1 = A // gong

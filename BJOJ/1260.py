@@ -14,6 +14,7 @@
 import sys
 from collections import deque
 from typing import Union, List, Any
+
 discovered: Union[List[bool], Any] = []
 
 

@@ -7,6 +7,7 @@
 # 임의의 수열이 주어졌을 때 스택을 이용해 그 수열을 만들 수 있는지 없는지,
 # 있다면 어떤 순서로 push 와 pop 연산을 수행해야 하는지를 알아낼 수 있다. 이를 계산하는 프로그램을 작성하라.
 import sys
+
 cnt = int(sys.stdin.readline().strip())
 stack = list()
 answer = list()

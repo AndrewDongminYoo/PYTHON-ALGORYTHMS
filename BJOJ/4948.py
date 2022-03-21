@@ -10,13 +10,12 @@ while True:
     if not num:
         break
     limit = num * 2
-    alpha = [False, False] + [True] * (limit-1)
+    alpha = [False, False] + [True] * (limit - 1)
     prime_number = []
 
-    for i in range(2, limit+1):
+    for i in range(2, limit + 1):
         if alpha[i]:
             prime_number.append(i)
-            for j in range(2*i, limit+1, i):
+            for j in range(2 * i, limit + 1, i):
                 alpha[j] = False
     print(len([x for x in prime_number if num < x <= limit]))
-

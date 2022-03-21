@@ -13,10 +13,11 @@
 
 import sys
 from collections import deque
+
 input = sys.stdin.readline
 count, target = map(int, input().split())
 indexes = list(map(int, input().split()))
-stack = deque(range(1, count+1))
+stack = deque(range(1, count + 1))
 move = 0
 
 cur = 1
@@ -26,7 +27,7 @@ for i in indexes:
             stack.popleft()
             break
         else:
-            if stack.index(i) < len(stack)/2:
+            if stack.index(i) < len(stack) / 2:
                 while stack[0] != i:
                     stack.rotate(-1)
                     move += 1
